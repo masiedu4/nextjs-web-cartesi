@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cartesi Frontend Web With Next.js App Router
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Cartesi Rollups version: 1.0.x
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+With this project you can test some interactions with the Cartesi Rollups project:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Metamask integration
+2. Send Inspect state Requests and Listing Reports response
+3. Sending Dapp Address with the DApp Relay
+4. Sending inputs
+5. Depositing Ether
+6. Depositing ERC20
+7. Depositing ERC721
+8. Depositing ERC1155 Single
+9. Depositing ERC1155 Batch
+10. Listing Notices
+11. Listing Reports
+12. Listing Vouchers
+13. Executing Vouchers
 
-## Learn More
+## Configurtion
 
-To learn more about Next.js, take a look at the following resources:
+Edit app/config.json to set the testnet parameters and deployment, inspect, graphql, rpc addresses.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In the project directory, run:
 
-## Deploy on Vercel
+```shell
+npm install
+npm run codegen
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+to run the app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```shell
+npm run dev
+```
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Voucher Notes
+
+To execute Vouchers, the voucher epoch must be finalized so the rollups framework generate the proofs.
+As a reminder, you can advance time in hardhat with the command:
+
+```shell
+curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
+```
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/lynoferraz/frontend-web-cartesi)
+

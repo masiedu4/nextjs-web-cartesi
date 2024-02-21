@@ -1,24 +1,52 @@
 {
-  "name": "nextjs-web-cartesi",
+  "name": "calc-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "run-p codegen:typechain codegen:graphql",
+    "codegen:graphql": "graphql-codegen",
+    "codegen:typechain": "typechain --target ethers-v5 --out-dir app/generated/rollups './node_modules/@cartesi/rollups/export/artifacts/**/*.json'"
   },
   "dependencies": {
+    "@cartesi/rollups": "1.0.0",
+    "@ethersproject/providers": "^5.6.0",
+    "@openzeppelin/contracts": "4.8.3",
+    "@web3-onboard/core": "^2.2.6",
+    "@web3-onboard/injected-wallets": "^2.0.5",
+    "@web3-onboard/react": "^2.1.5",
+    "ethers": "5.7.2",
+    "graphql": "^16.4.0",
+    "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "react-icons": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "urql": "^2.2.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@graphql-codegen/cli": "2.12.0",
+    "@graphql-codegen/typed-document-node": "^2.3.3",
+    "@graphql-codegen/typescript": "2.7.3",
+    "@graphql-codegen/typescript-operations": "^2.5.3",
+    "@graphql-codegen/typescript-urql": "^3.5.7",
+    "@graphql-typed-document-node/core": "^3.1.1",
+    "@typechain/ethers-v5": "^10.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
-  }
+    "eslint-config-next": "14.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typechain": "^8.3.2",
+    "typescript": "^5"
+  },
+  "main": "index.js",
+  "license": "MIT"
 }
